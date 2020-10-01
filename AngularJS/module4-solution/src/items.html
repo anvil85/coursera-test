@@ -1,0 +1,14 @@
+<div class="card mb-2" ng-repeat="item in $ctrl.list">
+    <div class="card-body">
+        <h3 class="card-title">{{item.name}} <span class="badge">{{item.short_name}}</span></h3>
+        <p class="card-text">
+            <strong>Description:</strong> {{item.description}}
+        </p>
+        <p class="card-text">
+            <strong>Price small:</strong> {{item.price_small}}
+        </p>
+        <p class="card-text">
+            <strong>Price large:</strong> {{item.price_large}}
+        </p>
+    </div>
+</div>

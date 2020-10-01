@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+        <li class="breadcrumb-item"><a ui-sref="categories">Categories</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{mainItems.categoryName}} ({{mainItems.categoryShortName}})</li>
+    </ol>
+</nav>
+
+<h3>Menu Items for {{mainItems.categoryName}} ({{mainItems.categoryShortName}})</h3>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <items list="mainItems.items"></items>
+    </div>
+</div>
