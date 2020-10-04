@@ -1,0 +1,46 @@
+<div class="input-form container text-center" ng-controller="SignUpController as signUpCtrl">
+    <form id="signUpForm" name="signUpForm" ng-hide="signUpForm.$submitted && signUpCtrl.saved" novalidate>
+
+        <div>
+            <label for="firstname">First Name:</label>
+            <span class="error-msg" ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
+                Please enter your first name
+            </span><br>
+            <input type="text" name="firstname" placeholder="First name" ng-model="signUpCtrl.user.firstname" required>
+        </div>
+        <div>
+            <label for="lastname">Last Name:</label>
+            <span class="error-msg" ng-if="signUpForm.lastname.$error.required && signUpForm.lastname.$touched">
+              Please enter your last name
+            </span><br>
+            <input type="text" name="lastname" placeholder="Last name" ng-model="signUpCtrl.user.lastname" required>
+        </div>
+        <div>
+            <label for="email">E-mail:</label>
+            <span class="error-msg" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+              Please enter a valid email address
+            </span><br>
+            <input type="email" name="email" placeholder="email@example.com" ng-model="signUpCtrl.user.email" required>
+        </div>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <span class="error-msg" ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+              Please enter a valid phone number (###-###-####)
+            </span><br>
+            <input type="text" name="phone" placeholder="Phone number: ###-###-####" ng-model="signUpCtrl.user.phone" required pattern="(\d{3})-(\d{3})-(\d{4})">
+        </div>
+        <div>
+            <label for="favmenuitem">Favourite Dish:</label>
+            <span class="error-msg" ng-if="signUpForm.$submitted && !signUpCtrl.saved && signUpCtrl.menuItem==null">
+              Sorry, no such menu number exists 
+            </span><br>
+            <input type="text" name="favmenuitem" placeholder="Menu short-name" ng-model="signUpCtrl.user.favmenuitem" required>
+        </div>
+        <div>
+            <button ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.submit()">Sign up</button>
+        </div>
+    </form>
+    <div class="row" ng-if="signUpForm.$submitted && signUpCtrl.saved">
+        <p class="text-center success">Your information has been saved!</p>
+    </div>
+</div>
